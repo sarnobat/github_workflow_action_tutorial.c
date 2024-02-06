@@ -69,7 +69,7 @@ jobs:
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
     - name: output
-      run: find ./
+      run: mv build/hello hello/${{ matrix.os }}
 
     - name: Test
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
