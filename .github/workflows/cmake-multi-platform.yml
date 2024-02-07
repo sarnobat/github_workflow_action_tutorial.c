@@ -30,15 +30,19 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
+            suffix: win
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+            suffix: linux
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
+            suffix: linux
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
+            suffix: darwin
         exclude:
           - os: windows-latest
             c_compiler: gcc
