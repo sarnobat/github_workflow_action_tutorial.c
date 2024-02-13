@@ -123,7 +123,5 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ./build/hello2.Linux
-          ./build/hello2.Darwin
-          build\Release\hello2.Windows.exe
+          ${{ matrix.binary }}
         tag_name:  ${{ steps.tag.outputs.tag }}
