@@ -31,18 +31,22 @@ jobs:
             c_compiler: cl
             cpp_compiler: cl
             suffix: win
+            binary: hello.exe
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
             suffix: linux
+            binary: hello.linux.gcc
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
             suffix: linux
+            binary: hello.linux
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
             suffix: darwin
+            binary: hello.darwin
         exclude:
           - os: windows-latest
             c_compiler: gcc
@@ -113,5 +117,5 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          hello.${{ matrix.suffix }}
+          ${{ matrix.binary }}
         tag_name:  ${{ steps.tag.outputs.tag }}
