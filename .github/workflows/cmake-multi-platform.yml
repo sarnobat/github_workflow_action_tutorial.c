@@ -112,6 +112,7 @@ jobs:
             git config --global user.email "xxx@xx.com"
             git tag -a $TAG -m "Published version $TAG" ${GITHUB_SHA}
             git push origin $TAG
+            find .
 
     - name: Release
       uses: softprops/action-gh-release@v1
