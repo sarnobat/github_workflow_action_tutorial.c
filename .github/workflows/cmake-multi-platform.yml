@@ -114,14 +114,16 @@ jobs:
             git push origin $TAG
             find .
     
-    - name: upload artifact
-      uses: actions/upload-artifact@v4.3.1
-      with:
-        path: ${{ matrix.binary }}
+#    - name: upload artifact
+#      uses: actions/upload-artifact@v4.3.1
+#      with:
+#        path: ${{ matrix.binary }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ matrix.binary }}
+          ./build/hello2.Linux
+          ./build/hello2.Darwin
+          build\Release\hello2.Windows.exe
         tag_name:  ${{ steps.tag.outputs.tag }}
