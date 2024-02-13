@@ -53,11 +53,11 @@ jobs:
             cpp_compiler: g++
             suffix: linux
             binary: ./build/hello2.Linux
-#          - os: ubuntu-latest
-#            c_compiler: clang
-#            cpp_compiler: clang++
-#            suffix: linux
-#            binary: ./build/hello2.Linux
+          - os: ubuntu-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+            suffix: linux
+            binary: ./build/hello2.Linux
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
@@ -74,6 +74,8 @@ jobs:
             c_compiler: clang
           - os: ubuntu-latest
             c_compiler: cl
+          - os: ubuntu-latest
+            c_compiler: clang
 
     steps:
     - uses: actions/checkout@v3
