@@ -31,22 +31,22 @@ jobs:
             c_compiler: cl
             cpp_compiler: cl
             suffix: win
-            binary: hello.exe
+            binary: hello2.Windows.exe
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
             suffix: linux
-            binary: hello.linux.gcc
+            binary: hello2.Linux
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
             suffix: linux
-            binary: hello.linux
+            binary: hello2.Linux
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
             suffix: darwin
-            binary: hello.darwin
+            binary: hello2.Darwin
         exclude:
           - os: windows-latest
             c_compiler: gcc
