@@ -145,7 +145,7 @@ jobs:
         upload_url: ${{ needs.create_release.outputs.upload_url }}
         asset_path: ${{ matrix.binary }}
         asset_name: hello.${{ matrix.os }}.${{ matrix.c_compiler }}
-        # asset_content_type: application/zip
+        asset_content_type: application/octet-stream
 
     - name: Release
       uses: softprops/action-gh-release@v1
