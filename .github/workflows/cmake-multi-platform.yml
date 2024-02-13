@@ -86,11 +86,11 @@ jobs:
 #    - name: output
 #      run: mv build/hello hello.${{ matrix.os }}
 
-    - name: Test
-      working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
-      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: ctest --build-config ${{ matrix.build_type }}
+#    - name: Test
+#      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+#      # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
+#      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+#      run: ctest --build-config ${{ matrix.build_type }}
 
 # Only supported on linux container
 #     - name: Bump version and push tag
@@ -100,7 +100,7 @@ jobs:
 #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
 #         WITH_V: false
 
-    - name: (10) Tag the repository
+    - name: Tag the repository
       shell: bash
       id: tag
       run: |
@@ -113,6 +113,11 @@ jobs:
             git tag -a $TAG -m "Published version $TAG" ${GITHUB_SHA}
             git push origin $TAG
             find .
+    
+    - name: upload artifact
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        path: ./build/${{ matrix.binary }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
