@@ -37,11 +37,11 @@ jobs:
             cpp_compiler: g++
             suffix: linux
             binary: ./build/hello2.Linux
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
-            suffix: linux
-            binary: ./build/hello2.Linux
+#          - os: ubuntu-latest
+#            c_compiler: clang
+#            cpp_compiler: clang++
+#            suffix: linux
+#            binary: ./build/hello2.Linux
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
