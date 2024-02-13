@@ -31,17 +31,17 @@ jobs:
             c_compiler: cl
             cpp_compiler: cl
             suffix: win
-            binary: build\Release\hello2.Windows.exe
+            binary: ./build/Release/hello2.Windows.exe
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
             suffix: linux
-            binary: ./build/hello2.Linux
+            binary: ./build/hello2.Linux.gcc
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
             suffix: linux
-            binary: ./build/hello2.Linux
+            binary: ./build/hello2.Linux.clang
           - os: macos-latest
             c_compiler: clang
             cpp_compiler: clang++
